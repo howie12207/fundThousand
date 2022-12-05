@@ -1,0 +1,55 @@
+# image: docker:stable
+# services:
+#     - docker:dind
+# variables:
+#     DOCKER_DRIVER: overlay2
+#     GCP_ECR: '${GCP_GAR}'
+#     PROJECT_NAME:
+# stages:
+#     - build
+
+# uat-build:
+#     only:
+#         - develop
+#     image: node:16
+#     tags:
+#         - runner1
+#     stage: build
+#     script:
+#         - npm i
+#         - npm run build:uat
+#         - echo name:$PROJECT_NAME >> ./dist/releasenote.txt
+#         - export PROJECT_VERSION=$(node -p "require('./package.json').version")
+#         - echo version:$PROJECT_VERSION >> ./dist/releasenote.txt
+#         - echo env:uat >> ./dist/releasenote.txt
+#         - echo sha:$CI_COMMIT_SHORT_SHA >> ./dist/releasenote.txt
+#         - echo trigger:$CI_COMMIT_REF_NAME >> ./dist/releasenote.txt
+#         - tar zcvf dist-uat.tar.gz ./dist
+#     artifacts:
+#         name: '$PROJECT_NAME $CI_COMMIT_SHORT_SHA uat'
+#         paths:
+#             - dist-uat.tar.gz
+#         expire_in: 1 week
+
+# build:
+#     only:
+#         - master
+#     image: node:16
+#     tags:
+#         - runner1
+#     stage: build
+#     script:
+#         - npm i
+#         - npm run build
+#         - echo name:$PROJECT_NAME >> ./dist/releasenote.txt
+#         - export PROJECT_VERSION=$(node -p "require('./package.json').version")
+#         - echo version:$PROJECT_VERSION >> ./dist/releasenote.txt
+#         - echo env:prod >> ./dist/releasenote.txt
+#         - echo sha:$CI_COMMIT_SHORT_SHA >> ./dist/releasenote.txt
+#         - echo trigger:$CI_COMMIT_REF_NAME >> ./dist/releasenote.txt
+#         - tar -zcvf dist.tar.gz ./dist
+#     artifacts:
+#         name: '$PROJECT_NAME $CI_COMMIT_SHORT_SHA prod'
+#         paths:
+#             - dist.tar.gz
+#         expire_in: 1 week

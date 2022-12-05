@@ -1,0 +1,46 @@
+.base-btn {
+    @apply inline-flex min-h-[40px] items-center justify-center rounded py-2 px-6 shadow-lg transition hover:opacity-80;
+}
+
+.base-modal {
+    ul {
+        @apply my-2 pl-4;
+
+        li {
+            @apply my-2 list-disc;
+
+            ul li {
+                @apply list-circle;
+            }
+        }
+    }
+}
+
+.base-table {
+    @apply w-full border-separate overflow-x-auto bg-black text-sm sm:text-base;
+    thead tr {
+        @apply bg-blue-700 text-white;
+    }
+    tbody tr {
+        @apply bg-gray-300;
+    }
+    td {
+        @apply p-1;
+    }
+}
+
+.home-banner {
+    background: linear-gradient(to bottom, #efdbcf 0%, #efdbcf 75%, #ddc7b9 75%, #ddc7b9 75%);
+}
+
+.form-1-section {
+    background: #d1e4ff url('./images/bg_house.png') center center no-repeat;
+}
+
+.form-2-section {
+    background: #d1e4ff url('./images/bg_form.png') center center no-repeat;
+}
+
+.is-teenager-label {
+    @apply relative mb-4 flex-1 cursor-pointer rounded border transition;
+}

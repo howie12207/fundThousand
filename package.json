@@ -1,0 +1,58 @@
+{
+    "name": "react-template",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "node ./src/prerender/cleanDist && tsc && vite build",
+        "build:uat": "node ./src/prerender/cleanDist && tsc && vite build --mode uat",
+        "preview": "vite preview",
+        "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+        "lint:ts": "tsc --noEmit -p tsconfig.json --composite false",
+        "prepare": "husky install",
+        "build:client": "vite build --outDir dist/client",
+        "build:server": "vite build --ssr src/prerender/entry-server.tsx --outDir dist/server",
+        "build:server-uat": "vite build --mode uat --ssr src/prerender/entry-server.tsx --outDir dist/server",
+        "generate": "node ./src/prerender/cleanDist && tsc && vite build --outDir dist/static && npm run build:server && node --experimental-specifier-resolution=node ./src/prerender/prerender",
+        "generate:uat": "node ./src/prerender/cleanDist && tsc && vite build --mode uat --outDir dist/static && npm run build:server-uat && node --experimental-specifier-resolution=node ./src/prerender/prerender"
+    },
+    "lint-staged": {
+        "*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}": "eslint",
+        "*.{css,scss,sass,js,ts,jsx,tsx}": "prettier --check --ignore-unknown",
+        "*.{ts,tsx}": "bash -c 'npm run lint:ts'"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.4.2"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^17.1.2",
+        "@commitlint/config-conventional": "^17.1.0",
+        "@emotion/react": "^11.10.4",
+        "@emotion/styled": "^11.10.4",
+        "@mui/icons-material": "^5.10.9",
+        "@mui/material": "^5.10.10",
+        "@reduxjs/toolkit": "^1.9.0",
+        "@types/react": "^18.0.17",
+        "@types/react-dom": "^18.0.6",
+        "@typescript-eslint/eslint-plugin": "^5.40.1",
+        "@typescript-eslint/parser": "^5.40.1",
+        "@vitejs/plugin-react": "^2.1.0",
+        "autoprefixer": "^10.4.12",
+        "eslint": "^8.25.0",
+        "eslint-plugin-react": "^7.31.10",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
+        "notistack": "^2.0.8",
+        "postcss": "^8.4.18",
+        "prettier": "2.7.1",
+        "prettier-plugin-tailwindcss": "^0.1.13",
+        "react-redux": "^8.0.5",
+        "sass": "^1.55.0",
+        "tailwindcss": "^3.1.8",
+        "typescript": "^4.6.4",
+        "vite": "^3.1.0"
+    }
+}
