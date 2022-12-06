@@ -17,7 +17,7 @@ uat-generate:
     stage: generate
     script:
         - npm i
-        - echo VITE_SHA = $CI_COMMIT_SHORT_SHA >> ./env.uat
+        - echo "\nVITE_SHA = $CI_COMMIT_SHORT_SHA" >> ./.env.uat
         - npm run generate:uat
         - echo name:$PROJECT_NAME >> ./dist/releasenote.txt
         - export PROJECT_VERSION=$(node -p "require('./package.json').version")
