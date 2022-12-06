@@ -31,8 +31,12 @@ const App = () => {
     useEffect(() => {
         if (renderRef.current) return;
         renderRef.current = true;
+        const versionData = import.meta.env.VITE_SHA
+            ? `${version} ${import.meta.env.VITE_SHA}`
+            : version;
+
         console.info(
-            `${import.meta.env.MODE} version: %c${version}`,
+            `${import.meta.env.MODE} version: %c${versionData}`,
             'color:white;background:#005598;padding: 0.1rem 0.5rem; border-radius: 0.6rem'
         );
 
