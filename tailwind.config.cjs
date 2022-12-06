@@ -20,6 +20,7 @@ module.exports = {
 // blue-900
 // gray-300 disabled
 // gray-700
+// red-300
 // red-400
 // red-500 error
 // red-800
