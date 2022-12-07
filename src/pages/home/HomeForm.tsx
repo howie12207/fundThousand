@@ -389,8 +389,12 @@ const HomeForm = ({ order }: Props) => {
                     </div>
                     <div className="mt-2 text-center">
                         <button
-                            className="base-btn w-40 rounded-3xl bg-red-400 text-white"
+                            className={[
+                                'base-btn w-40 rounded-3xl bg-red-400 text-white',
+                                'disabled:bg-gray-300 disabled:hover:cursor-not-allowed',
+                            ].join(' ')}
                             onClick={submit}
+                            disabled={isLoadingSubmit}
                         >
                             立即開戶
                             <Fade in={isLoadingSubmit}>
