@@ -9,7 +9,6 @@ import Home from './pages/home/Home';
 import { tracking } from '@/utils/tracking';
 import { updateIp } from '@/store/base';
 import { fetchIp } from '@/api/base';
-import { version } from '../package.json';
 
 const App = () => {
     // Transition
@@ -32,8 +31,8 @@ const App = () => {
         if (renderRef.current) return;
         renderRef.current = true;
         const versionData = import.meta.env.VITE_TIME
-            ? `${version} ${import.meta.env.VITE_TIME}`
-            : version;
+            ? `${__APP_VERSION__} ${import.meta.env.VITE_TIME}`
+            : __APP_VERSION__;
 
         console.info(
             `${import.meta.env.MODE} version: %c${versionData}`,
