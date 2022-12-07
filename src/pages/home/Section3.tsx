@@ -49,7 +49,7 @@ const Section3 = () => {
 
                 <div className="my-8 rounded-xl bg-white p-4 shadow">
                     <div className="mt-4 font-bold text-red-800 sm:text-2xl">
-                        投資微笑曲線，報酬好驚人！
+                        投資微笑曲線，買在高點也不怕
                     </div>
                     <picture>
                         <source media="(max-width: 767px)" srcSet={ImgChart2M} />
