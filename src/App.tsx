@@ -31,8 +31,8 @@ const App = () => {
     useEffect(() => {
         if (renderRef.current) return;
         renderRef.current = true;
-        const versionData = import.meta.env.VITE_SHA
-            ? `${version} ${import.meta.env.VITE_SHA}`
+        const versionData = import.meta.env.VITE_TIME
+            ? `${version} ${import.meta.env.VITE_TIME}`
             : version;
 
         console.info(

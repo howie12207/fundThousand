@@ -17,7 +17,8 @@ uat-generate:
     stage: generate
     script:
         - npm i
-        - echo "\nVITE_SHA=$CI_COMMIT_SHORT_SHA" >> ./.env.uat
+        - echo "" >> ./.env.uat
+        - echo "VITE_TIME=$CI_PIPELINE_CREATED_AT" >> ./.env.uat
         - npm run generate:uat
         - echo name:$PROJECT_NAME >> ./dist/releasenote.txt
         - export PROJECT_VERSION=$(node -p "require('./package.json').version")
@@ -27,7 +28,7 @@ uat-generate:
         - echo trigger:$CI_COMMIT_REF_NAME >> ./dist/releasenote.txt
         - tar zcvf dist-uat.tar.gz ./dist
     artifacts:
-        name: '$PROJECT_NAME $CI_COMMIT_SHORT_SHA uat'
+        name: '$PROJECT_NAME $CI_COMMIT_SHORT_SHA $CI_PIPELINE_CREATED_AT uat'
         paths:
             - dist-uat.tar.gz
         expire_in: 1 week
