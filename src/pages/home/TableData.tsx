@@ -94,7 +94,7 @@ const TableData = () => {
                 </div>
                 <div className="my-2 text-xs sm:text-base">
                     資料來源：富蘭克林投顧整理。
-                    <div className="text-xs">
+                    <div className="font-bold">
                         投資人因不同時間進場，將有不同之投資績效，過去之績效亦不代表未來績效之保證。
                     </div>
                 </div>

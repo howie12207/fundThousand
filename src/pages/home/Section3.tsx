@@ -14,7 +14,7 @@ const Section3 = () => {
         <section className="bg-orange-50 py-8 px-2 text-center">
             <div className="mx-auto max-w-5xl">
                 <h2 className="mb-4 text-2xl font-black text-blue-700 sm:text-3xl">
-                    跟尋市場長期致勝的秘訣美國平衡型基金
+                    跟尋市場長期致勝的秘訣
                 </h2>
                 <p className="text-lg">
                     以美股市場而言整體呈現「牛長熊短，長期向上」走勢，若持續定期定額投資，獲利與報酬就能跟著市場一起成長，定期定額報酬率也持續墊高。

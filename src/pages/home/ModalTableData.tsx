@@ -125,7 +125,9 @@ export const ModalTableData = ({ modalTarget, setModalTarget }: Props) => {
                     <div className="my-2 text-center text-xs">
                         資料來源：富蘭克林投顧整理。
                         <br />
-                        投資人因不同時間進場，將有不同之投資績效，過去之績效亦不代表未來績效之保證。
+                        <div className="font-bold">
+                            投資人因不同時間進場，將有不同之投資績效，過去之績效亦不代表未來績效之保證。
+                        </div>
                     </div>
                 </div>
             </Fade>
