@@ -144,6 +144,9 @@ const HomeForm = ({ order }: Props) => {
         setIsCounting(true);
         setIsSendOtp(true);
     };
+    useEffect(() => {
+        if (phone.length === 10 && !hasPhone) phoneRef.current?.validateNow();
+    }, [phone]);
 
     // counter
     const [countNumber, setCountNumber] = useState(0);
@@ -328,7 +331,7 @@ const HomeForm = ({ order }: Props) => {
                                 'disabled:bg-gray-300 disabled:hover:cursor-not-allowed',
                             ].join(' ')}
                             onClick={getOtp}
-                            disabled={isCounting || isLoadingOtp}
+                            disabled={isCounting || isLoadingOtp || (!phoneIsValid && !hasPhone)}
                         >
                             獲取驗證碼
                             {countNumber > 0 && <span className="ml-2">( {countNumber} )</span>}
