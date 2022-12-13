@@ -125,10 +125,10 @@ const HomeForm = ({ order }: Props) => {
     ];
     const [isLoadingOtp, setIsLoadingOtp] = useState(false);
     const [isSendOtp, setIsSendOtp] = useState(false);
-    let sendStartTime = 0;
+    const [sendStartTime, setSendStartTime] = useState(0);
     const getOtp = async () => {
         setIsLoadingOtp(true);
-        sendStartTime = new Date().valueOf();
+        setSendStartTime(new Date().valueOf());
         const res = await fetchOtp({
             Gid: gid,
             Message:
@@ -177,7 +177,7 @@ const HomeForm = ({ order }: Props) => {
         setIsLoadingSubmit(true);
         const res = await otpVerify({ Gid: gid, VerifyCode: otp });
         setIsLoadingSubmit(false);
-        const sendTime = Math.floor(new Date().valueOf() - sendStartTime);
+        const sendTime = Math.floor((new Date().valueOf() - sendStartTime) / 1000);
         if (!res) return;
         window.location.href = `${import.meta.env.VITE_OPEN_ACCOUNT_URL}/loading?id=${window.btoa(
             idNumber
@@ -389,8 +389,12 @@ const HomeForm = ({ order }: Props) => {
                     </div>
                     <div className="mt-2 text-center">
                         <button
-                            className="base-btn w-40 rounded-3xl bg-red-400 text-white"
+                            className={[
+                                'base-btn w-40 rounded-3xl bg-red-400 text-white',
+                                'disabled:bg-gray-300 disabled:hover:cursor-not-allowed',
+                            ].join(' ')}
                             onClick={submit}
+                            disabled={isLoadingSubmit}
                         >
                             立即開戶
                             <Fade in={isLoadingSubmit}>

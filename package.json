@@ -1,7 +1,7 @@
 {
     "name": "react-template",
     "private": true,
-    "version": "0.0.0",
+    "version": "1.0.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -14,8 +14,8 @@
         "build:client": "vite build --outDir dist/client",
         "build:server": "vite build --ssr src/prerender/entry-server.tsx --outDir dist/server",
         "build:server-uat": "vite build --mode uat --ssr src/prerender/entry-server.tsx --outDir dist/server",
-        "generate": "node ./src/prerender/cleanDist && tsc && vite build --outDir dist/static && npm run build:server && node --experimental-specifier-resolution=node ./src/prerender/prerender",
-        "generate:uat": "node ./src/prerender/cleanDist && tsc && vite build --mode uat --outDir dist/static && npm run build:server-uat && node --experimental-specifier-resolution=node ./src/prerender/prerender"
+        "generate": "node ./src/prerender/cleanDist && tsc && vite build --outDir dist && npm run build:server && node --experimental-specifier-resolution=node ./src/prerender/prerender",
+        "generate:uat": "node ./src/prerender/cleanDist && tsc && vite build --mode uat --outDir dist && npm run build:server-uat && node --experimental-specifier-resolution=node ./src/prerender/prerender"
     },
     "lint-staged": {
         "*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}": "eslint",
