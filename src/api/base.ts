@@ -22,19 +22,19 @@ export const fetchIp = async () => {
 
 // 取得用戶開戶狀態
 export const fetchState = async () => {
-    const res: StateResponse = await req(`${base}/v2/open/state`);
+    const res: StateResponse = await req(`${base}/v3/open/state`);
     return res?.Rtcode === 'success' ? res.Result : false;
 };
 
 // 發送OTP
 export const fetchOtp = async (params: object) => {
-    const res = await req(`${base}/v2/open/otp`, { method: 'POST', body: JSON.stringify(params) });
+    const res = await req(`${base}/v3/open/otp`, { method: 'POST', body: JSON.stringify(params) });
     return res?.Rtcode === 'success' ? res.Result : false;
 };
 
 // OTP驗證
 export const otpVerify = async (params: object) => {
-    const res = await req(`${base}/v2/open/otp-verify`, {
+    const res = await req(`${base}/v3/open/otp-verify`, {
         method: 'POST',
         body: JSON.stringify(params),
     });
