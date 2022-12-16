@@ -17,8 +17,9 @@ uat-generate:
     stage: generate
     script:
         - npm i
+        - VITE_TIME=`date -d "+8 hour" +"%Y/%m/%d %H:%M:%S"`
         - echo "" >> ./.env.uat
-        - echo "VITE_TIME=$CI_PIPELINE_CREATED_AT" >> ./.env.uat
+        - echo VITE_TIME=$VITE_TIME >> ./.env.uat
         - npm run generate:uat
         - echo name:$PROJECT_NAME >> ./dist/releasenote.txt
         - export PROJECT_VERSION=$(node -p "require('./package.json').version")
@@ -28,7 +29,7 @@ uat-generate:
         - echo trigger:$CI_COMMIT_REF_NAME >> ./dist/releasenote.txt
         - tar zcvf dist-uat.tar.gz ./dist
     artifacts:
-        name: '$PROJECT_NAME $CI_COMMIT_SHORT_SHA $CI_PIPELINE_CREATED_AT uat'
+        name: '$PROJECT_NAME $CI_COMMIT_SHORT_SHA $VITE_TIME uat'
         paths:
             - dist-uat.tar.gz
         expire_in: 1 week
@@ -73,8 +74,9 @@ uat-tag-generate:
     stage: generate
     script:
         - npm i
+        - VITE_TIME=`date -d "+8 hour" +"%Y/%m/%d %H:%M:%S"`
         - echo "" >> ./.env.uat
-        - echo "VITE_TIME=$CI_PIPELINE_CREATED_AT" >> ./.env.uat
+        - echo VITE_TIME=$VITE_TIME >> ./.env.uat
         - npm run generate:uat
         - echo name:$PROJECT_NAME >> ./dist/releasenote.txt
         - export PROJECT_VERSION=$(node -p "require('./package.json').version")
@@ -85,7 +87,7 @@ uat-tag-generate:
         - tar zcvf dist-uat.tar.gz ./dist
 
     artifacts:
-        name: '$PROJECT_NAME $CI_COMMIT_SHORT_SHA $CI_PIPELINE_CREATED_AT uat'
+        name: '$PROJECT_NAME $CI_COMMIT_SHORT_SHA $VITE_TIME uat'
         paths:
             - dist-uat.tar.gz
         expire_in: 1 week
