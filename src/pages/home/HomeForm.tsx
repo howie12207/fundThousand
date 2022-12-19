@@ -105,14 +105,14 @@ const HomeForm = ({ order }: Props) => {
             }
         };
 
+        if (isFocus && !hasFocus) {
+            dispatch(updateHasFocus(true));
+            tracking('NewCreate_S1_fill');
+        }
+
         if (idNumberIsValid) getState();
         else if (idNumber.length === 10) idNumberRef.current?.validateNow();
     }, [idNumber]);
-    useEffect(() => {
-        if (!isFocus || hasFocus) return;
-        dispatch(updateHasFocus(true));
-        tracking('NewCreate_S1_fill');
-    }, [isFocus]);
 
     // phone
     const phoneRef: Ref<BaseInputRef> = useRef(null);
