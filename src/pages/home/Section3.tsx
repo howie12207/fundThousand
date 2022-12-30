@@ -84,14 +84,14 @@ const Section3 = () => {
                                 <img
                                     className="mx-auto h-[128px] w-[145px]"
                                     src={ImgHandCash}
-                                    alt="終身零手續費3筆"
+                                    alt="零手續費3筆"
                                     loading="lazy"
                                 />
                             </div>
                             <div className="mb-2 text-lg font-bold text-blue-700 md:text-2xl">
-                                終身零手續費3筆
+                                零手續費3筆
                             </div>
-                            <div className="md:text-lg">3筆定期定額終身0手續費</div>
+                            <div className="md:text-lg">3筆定期定額0手續費</div>
                         </div>
                         <div className="my-4 mx-4 flex-1 md:my-0">
                             <div className="mx-auto h-40 w-48">
