@@ -9,7 +9,7 @@ const Section1 = () => {
             <p className="text-lg">
                 想要投資基金但害怕風險？富蘭克林「千元存基金」，每月1千元就能小試身手，或是單筆1萬元就能投資。
                 <br />
-                而且<strong className="font-bold text-yellow-300">2022/12/31之前</strong>
+                而且<strong className="font-bold text-yellow-300">2023/03/31之前</strong>
                 ，配息型/精選股票型基金手續費
                 <strong className="font-bold text-yellow-300">0元！</strong>
             </p>
