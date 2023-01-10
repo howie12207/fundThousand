@@ -27,7 +27,7 @@ const theme = createTheme({
 });
 
 export function render(url: string) {
-    return ReactDOMServer.renderToString(
+    const html = ReactDOMServer.renderToString(
         <Provider store={store}>
             <ThemeProvider theme={theme}>
                 <SnackbarProvider
@@ -46,4 +46,5 @@ export function render(url: string) {
             </ThemeProvider>
         </Provider>
     );
+    return html;
 }

@@ -1,29 +1,19 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+// import { useLocation } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 // import Fade from '@mui/material/Fade';
 // import CircularProgress from '@mui/material/CircularProgress';
-import Home from './pages/home/Home';
+// import Home from './pages/home/Home';
+// import Test from './pages/test/Test';
+
+import RouteComponents from './router/a';
 
 import { tracking } from '@/utils/tracking';
 import { updateIp } from '@/store/base';
 import { fetchIp } from '@/api/base';
 
 const App = () => {
-    // Transition
-    const location = useLocation();
-    const [displayLocation, setDisplayLocation] = useState(location);
-    const [transitionStage, setTransistionStage] = useState('fade-in');
-    useEffect(() => {
-        if (location !== displayLocation) setTransistionStage('fade-out');
-    }, [location]);
-    const animationHandle = () => {
-        if (transitionStage === 'fade-out') {
-            setTransistionStage('fade-in');
-            setDisplayLocation(location);
-        }
-    };
     const dispatch = useDispatch();
 
     const renderRef = useRef(false);
@@ -50,12 +40,7 @@ const App = () => {
 
     return (
         <div className="min-h-screen text-gray-700">
-            <section className={`${transitionStage}`} onAnimationEnd={animationHandle}>
-                <Routes location={displayLocation}>
-                    <Route path="/" element={<Home />}></Route>
-                </Routes>
-            </section>
-
+            <RouteComponents />
             {/* <Fade in={isLoading}>
                 <div className="fixed top-0 left-0 z-50 flex h-screen w-screen items-center justify-center bg-black/60">
                     <CircularProgress sx={{ color: '#005598' }} size={60} />
